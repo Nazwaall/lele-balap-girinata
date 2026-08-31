@@ -100,3 +100,27 @@ function sendToWhatsApp(event) {
 
     window.open(waUrl, '_blank');
 }
+
+// ==================== KODE NAVIGASI HAMBURGER ====================
+document.addEventListener('DOMContentLoaded', () => {
+    // Sesuaikan selector dengan class/id tombol dan menu di HTML kamu
+    const hamburger = document.querySelector('.hamburger') || document.getElementById('hamburger');
+    const navMenu = document.querySelector('.nav-links') || document.querySelector('.navbar-nav') || document.querySelector('nav ul');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Menutup menu otomatis saat salah satu link navigasi diklik
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+});

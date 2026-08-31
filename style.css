@@ -117,19 +117,15 @@ body {
     white-space: nowrap;
 }
 
-.hamburger-btn {
+.hamburger {
     display: none;
     background: none;
     border: none;
-    color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    color: #ffffff;
     cursor: pointer;
+    z-index: 1001;
     padding: 4px;
-    transition: color 0.3s;
-}
-
-.hamburger-btn:hover {
-    color: var(--accent);
 }
 
 /* ================= HERO SECTION ================= */
@@ -620,24 +616,24 @@ footer {
 
 /* ================= RESPONSIVE MOBILE BREAKPOINTS ================= */
 
-/* Tablet & HP Landscape (Maksimal 768px) */
+/* Tablet & HP (Maksimal 768px) */
 @media (max-width: 768px) {
     .container {
         padding: 40px 16px;
     }
 
     .navbar {
-        flex-direction: row;
-        justify-content: space-between;
+        position: sticky;
+        top: 0;
         padding: 12px 20px;
     }
 
     /* Tombol Hamburger Tampil */
-    .hamburger-btn {
+    .hamburger {
         display: block;
     }
 
-    /* Menu Navigasi Menjadi Dropdown Sliding */
+    /* Menu Navigasi Menjadi Dropdown Sliding dari Bawah Navbar */
     .nav-links {
         display: flex;
         flex-direction: column;
@@ -647,12 +643,12 @@ footer {
         width: 100%;
         background-color: var(--primary);
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-        padding: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out;
         gap: 0;
         border-top: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 1000;
     }
 
     /* Saat Hamburger Aktif */
@@ -707,7 +703,7 @@ footer {
     }
 }
 
-/* Layar Smartphone / HP Tegak (Maksimal 480px) */
+/* Smartphone Layar Kecil (Maksimal 480px) */
 @media (max-width: 480px) {
     .section-header h2 {
         font-size: 1.5rem;
