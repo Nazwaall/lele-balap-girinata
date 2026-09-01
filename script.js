@@ -101,25 +101,23 @@ function sendToWhatsApp(event) {
     window.open(waUrl, '_blank');
 }
 
-// ==================== KODE NAVIGASI HAMBURGER ====================
-document.addEventListener('DOMContentLoaded', () => {
-    // Sesuaikan selector dengan class/id tombol dan menu di HTML kamu
-    const hamburger = document.querySelector('.hamburger') || document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-links') || document.querySelector('.navbar-nav') || document.querySelector('nav ul');
+/// ================= TOGGLE HAMBURGER MENU =================
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerBtn = document.getElementById("hamburger-btn") || document.querySelector(".hamburger");
+    const navMenu = document.getElementById("nav-menu") || document.querySelector(".nav-links");
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', (e) => {
+    if (hamburgerBtn && navMenu) {
+        hamburgerBtn.addEventListener("click", function (e) {
+            e.preventDefault();
             e.stopPropagation();
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            navMenu.classList.toggle("active");
         });
 
-        // Menutup menu otomatis saat salah satu link navigasi diklik
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+        // Menutup menu saat link diklik
+        const links = navMenu.querySelectorAll("a");
+        links.forEach(function (link) {
+            link.addEventListener("click", function () {
+                navMenu.classList.remove("active");
             });
         });
     }
